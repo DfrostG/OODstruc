@@ -27,12 +27,12 @@ for item in book:
 
 for item in cmd:
     ed = item[0]
-    id_book = item[2:]
 
     if ed == "D":
         book_shelf.dequeue()
 
     elif ed == "E":
+        id_book = item[2]
         book_shelf.enqueue(id_book)
 
 if len(book_shelf.items) != len(set(book_shelf.items)):
