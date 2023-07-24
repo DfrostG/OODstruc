@@ -8,30 +8,23 @@ class Stack():
     def pop(self):
         return self.items.pop()
     
-    def peek(self):
-        self.items[-1]
+    def peak(self):
+        return self.items[-1]
 
     def isEmpty(self):
-        if len(self.items) == 0:
-            return True
-        return False
+        return self.items == []
     
     def size(self):
         return len(self.items)
-    
-class Plate:
-    def __init__(self, weight, freq):
-        self.weight = weight
-        self.freq = freq
 
-plates = input("Enter Input : ").split(",")
-plate_stack = Stack()
-for plate in plates:
-    cur_plate = Plate(*[int(x) for x in plate.split()])
-    if not plate_stack.isEmpty() and cur_plate.weight > plate_stack.items[-1].weight:
-        for i in range(plate_stack.size()):
-            if cur_plate.weight > plate_stack.items[-1].weight:
-                print(plate_stack.pop().freq)
-        plate_stack.push(cur_plate)
-    else:
-        plate_stack.push(cur_plate)
+inputstr = input("input str: ").split(',')
+stack = Stack()
+for curplate in inputstr:
+    curweight = int(curplate.split()[0])
+    curfreq = int(curplate.split()[1])
+
+    while stack.isEmpty() == False and int(stack.peak().split()[0]) < int(curweight):
+        print(f"{stack.peak().split()[1]}")
+        stack.pop()
+        
+    stack.push(curplate)

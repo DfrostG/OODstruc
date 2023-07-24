@@ -30,8 +30,11 @@ for val in inputstr:
     me.enqueue(ac[0])
     you.enqueue(ac[1])
 
-print(f"My Queue = {me}")
-print(f"Your Queue = {you}")
+# print(f"My Queue = {me.items}")
+# print(f"Your Queue = {you.items}")
+print("My Queue =", *me.items)
+print("Your Queue =", *you.items)
+
 
 while not me.isEmpty():
     top_me, top_you = me.dequeue(), you.dequeue()
@@ -57,10 +60,10 @@ print("Your Activity:Location = ", end = "")
 print(", ".join(list_you))
 
 if point >= 7:
-    print("Yes! You're my love!")
+    print(f"Yes! You're my love! : Score is {point}.")
 
 elif 0 < point and point < 7:
-    print("Umm.. It's complicated relationship!")
+    print(f"Umm.. It's complicated relationship! : Score is {point}.")
 
 elif point <= 0:
-    print("No! We're just friends.")
+    print(f"No! We're just friends. : Score is {point}.")
