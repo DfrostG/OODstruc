@@ -30,8 +30,6 @@ for val in inputstr:
     me.enqueue(ac[0])
     you.enqueue(ac[1])
 
-# print(f"My Queue = {me.items}")
-# print(f"Your Queue = {you.items}")
 print("My Queue =", *me.items)
 print("Your Queue =", *you.items)
 
