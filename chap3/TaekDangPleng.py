@@ -8,7 +8,7 @@ class Stack():
     def pop(self):
         return self.items.pop()
     
-    def peak(self):
+    def peek(self):
         return self.items[-1]
 
     def isEmpty(self):
@@ -23,8 +23,8 @@ for curplate in inputstr:
     curweight = int(curplate.split()[0])
     curfreq = int(curplate.split()[1])
 
-    while stack.isEmpty() == False and int(stack.peak().split()[0]) < int(curweight):
-        print(f"{stack.peak().split()[1]}")
+    while stack.isEmpty() == False and int(stack.peek().split()[0]) < int(curweight):
+        print(f"{stack.peek().split()[1]}")
         stack.pop()
         
     stack.push(curplate)
