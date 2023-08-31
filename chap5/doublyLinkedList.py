@@ -55,7 +55,7 @@ class LinkedList:
             self.head = p
         
     def insert(self, pos, item):
-        p = Node(item)
+        new_node = Node(item)
         if pos == 0:
             self.addHead(item)
         elif pos >= self.size():
@@ -63,10 +63,10 @@ class LinkedList:
         elif pos < 0:
             pos = self.size() + pos
             if pos <= 0:
-                p.next = self.head
-                if self.head:
-                    self.head.previous = p
-                self.head = p
+                new_node.next = self.head
+                if self.head != None:
+                    self.head.previous = new_node
+                self.head = new_node
             else:
                 cur = self.head
                 for i in range(pos - 1):
@@ -75,20 +75,20 @@ class LinkedList:
                     cur = cur.next
                 
                 if cur != None:
-                    p.next = cur.next
-                    p.previous = cur
+                    new_node.next = cur.next
+                    new_node.previous = cur
                     if cur.next:
-                        cur.next.previous = p
-                    cur.next = p
+                        cur.next.previous = new_node
+                    cur.next = new_node
         else:
             cur = self.head
             for i in range(pos - 1):
                 cur = cur.next
                 
-            p.next = cur.next
-            p.previous = cur
-            cur.next.previous = p
-            cur.next = p
+            new_node.next = cur.next
+            new_node.previous = cur
+            cur.next.previous = new_node
+            cur.next = new_node
     
     def search(self, item):
         cur = self.head
