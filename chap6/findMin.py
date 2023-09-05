@@ -1,5 +1,4 @@
 inp = list(map(int,input("Enter Input : ").split()))
-#print(inp)
 
 def findmin(numlist, min, index):
     if index == 0:

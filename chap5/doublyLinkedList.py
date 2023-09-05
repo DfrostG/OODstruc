@@ -34,16 +34,16 @@ class LinkedList:
         return self.head == None
     
     def append(self, item):
-        p = Node(item)
+        new_node = Node(item)
         if self.isEmpty():
-            self.head = self.tail = p
+            self.head = self.tail = new_node
         else:
-            t = self.head
-            while t.next != None:
-                t = t.next
-            t.next = p
-            self.tail = p
-            p.previous = t
+            cur = self.head
+            while cur.next != None:
+                cur = cur.next
+            cur.next = new_node
+            self.tail = new_node
+            new_node.previous = cur
 
     def addHead(self, item):
         p = Node(item)
